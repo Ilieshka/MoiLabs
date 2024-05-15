@@ -40,7 +40,7 @@ do {
     }
     else
     {
-        printf("Varianta net ");
+        printf("Varianta net! \n");
     }
     } while (!variant);
     return 0;
