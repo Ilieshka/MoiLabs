@@ -4,7 +4,7 @@
 int main() {
     
     int variant;
-
+do {
     printf("Vvedite nomer lab: \n");
     scanf_s("%d", &variant);
     if (variant == 1) {
@@ -40,7 +40,8 @@ int main() {
     }
     else
     {
-        printf("Varianta net ");
+        printf("Varianta net! \n ");
     }
+     } while (!variant);
     return 0;
 }
