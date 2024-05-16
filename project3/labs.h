@@ -10,5 +10,8 @@ int extern labs4();
 int extern labs5();
 int extern labs6();
 int extern labs7();
-int extern labs8();
+int extern Doplabs3();
+int extern Doplabs4();
+int extern Doplabs5();
+int extern Doplabs6();
 #endif
