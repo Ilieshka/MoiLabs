@@ -99,6 +99,31 @@ int labs3()
      printf("Kolichestvo slov: %d\n", kolichSlov );
      return 0;
 }
+int Doplabs3() {
+    char c;
+    char predSymvol = 0;
+    int kolichestvoSivolovPovtor = 0;
+    int kolichSlov = 0;
+    int dlinaslova = 0; // переменная для отслеживания длины слова
+    printf("Vvedite text: \n");
+    // цикл чтения символов из потока, связанного с клавиатурой
+    while ((c = getchar()) != EOF) {
+        if (c == ' ' || c == '.' || c == '\n' || c == ',') {
+            if (kolichestvoSivolovPovtor > 0 && dlinaslova >= 3)
+                ++kolichSlov;
+            kolichestvoSivolovPovtor = 0;
+            dlinaslova = 0; // сброс длины слова при завершении слова
+        }
+        else {
+            if (c == predSymvol)
+                ++kolichestvoSivolovPovtor;
+            predSymvol = c;
+            ++dlinaslova; // увеличение длины слова при каждом символе
+        }
+    }
+    printf("Kolishestvo slov, sostoyshi min iz 3 bukv: %d\n", kolichSlov );
+        return 0;
+}
 int labs4() {
     char slovo[MAX_WORD_LEN + 1] = "";
     int index = 0;
@@ -209,7 +234,32 @@ int Doplabs4() {
 };
 
 
-int labs5(){
+int labs5() {
+    
+        int array[10];
+        // Ввод массива
+        printf("Vvedite 10 chisel:\n");
+        for (int i = 0; i < 10; i++) {
+            printf("Vvedite chislo: ");
+            scanf_s("%d", &array[i]);
+        }
+        int max_summa = array[0] + array[1];
+        int max_index = 0;
+        int min_summa = array[0] + array[1];
+        int min_index = 0;
+        for (int i = 1; i < 9; i++) {
+            int sum = array[i] + array[i + 1];
+            if (sum > max_summa) {
+                max_summa = sum;
+                max_index = i;
+            }
+        }
+
+        printf(" Nover pari c max summ : %d - %d ; \n", max_index, max_index + 1);
+        system("PAUSE");
+        return 0;
+    }
+int Doplabs5() {
     int array[10];
     // Ввод массива
     printf("Vvedite 10 chisel:\n");
@@ -236,24 +286,7 @@ int labs5(){
         }
     }
     printf(" Nover pari c max summ i min summ: %d - %d ; %d - %d\n", max_index, max_index + 1, min_index, min_index + 1);
-
-    return 0;
-}
-int Doplabs5() {
-    int array[10] = { 5, 8, 12, 6, 3, 9, 15, 7, 10, 4 };
-    int min_summa = array[0] + array[1];
-    int min_index = 0;
-
-    for (int i = 1; i < 9; i++) {
-        int sum = array[i] + array[i + 1];
-        if (sum < min_summa) {
-            min_summa = sum;
-            min_index = i;
-        }
-    }
-
-    printf(" Nomer pari c min summ: %d и %d\n", min_index, min_index + 1);
-
+    system("PAUSE");
     return 0;
 }
 
@@ -313,97 +346,95 @@ int labs6() {
     return 0;
 
 }
-int labs7(){
+int Doplabs6() {
 #define K 3
 #define N 4
 
-    
-        int x[K][N];
-        int i, j;
 
-        // Ввод массива
-        for (i = 0; i < K; i++) {
-            for (j = 0; j < N; j++) {
-                printf("VVedite chislo: ");
-                scanf_s("%d", &x[i][j]);
-            }
-        }
+    int x[K][N];
+    int i, j;
 
-        printf("Vivod bez puzur:\n");
-        for (i = 0; i < K; i++) {
-            for (j = 0; j < N; j++) {
-                printf("%d ", x[i][j]);
-            }
-            printf("\n");
+    // Ввод массива
+    for (i = 0; i < K; i++) {
+        for (j = 0; j < N; j++) {
+            printf("VVedite chislo: ");
+            scanf_s("%d", &x[i][j]);
         }
-
-        // Преобразование массива в строку
-        int stroka[K * N];
-        int k = 0;
-        for (i = 0; i < K; i++) {
-            for (j = 0; j < N; j++) {
-                stroka[k++] = x[i][j];
-            }
-        }
-
-        // Сортировка строки методом пузырька
-        for (i = 0; i < K * N - 1; i++) {
-            for (j = 0; j < K * N - i - 1; j++) {
-                if (stroka[j] > stroka[j + 1]) {
-                    int temp = stroka[j];
-                    stroka[j] = stroka[j + 1];
-                    stroka[j + 1] = temp;
-                }
-            }
-        }
-
-        // Обратное преобразование строки в двумерный массив
-        k = 0;
-        for (i = 0; i < K; i++) {
-            for (j = 0; j < N; j++) {
-                x[i][j] = stroka[k++];
-            }
-        }
-
-        // Вывод массива
-        printf("Vivod:\n");
-        for (i = 0; i < K; i++) {
-            for (j = 0; j < N; j++) {
-                printf("%d ", x[i][j]);
-            }
-            printf("\n");
-        }
-        
-        return 0;
     }
 
- int labs8(void) {
-     unsigned long long shislo;
+    printf("Vivod bez puzur:\n");
+    for (i = 0; i < K; i++) {
+        for (j = 0; j < N; j++) {
+            printf("%d ", x[i][j]);
+        }
+        printf("\n");
+    }
 
-     // Ввод числа
-     printf("Vvedite celoe chislo: ");
-     scanf_s("%llu", &shislo);
+    // Преобразование массива в строку
+    int stroka[K * N];
+    int k = 0;
+    for (i = 0; i < K; i++) {
+        for (j = 0; j < N; j++) {
+            stroka[k++] = x[i][j];
+        }
+    }
 
-     // Вывод исходных байтов
-     printf("Ishodn bait chisla: ");
-     for (int i = 0; i < sizeof(shislo); i++) {
-         printf("%02X ", (unsigned char)(shislo >>(i * 8)));
-     }
-     printf("\n");
+    // Сортировка строки методом пузырька
+    for (i = 0; i < K * N - 1; i++) {
+        for (j = 0; j < K * N - i - 1; j++) {
+            if (stroka[j] > stroka[j + 1]) {
+                int temp = stroka[j];
+                stroka[j] = stroka[j + 1];
+                stroka[j + 1] = temp;
+            }
+        }
+    }
 
-     // Функция для обмена байтов местами
-     unsigned long long swapped = 0;
-     for (int i = 0; i < sizeof(shislo); i++) {
-         swapped = (swapped << 8) | ((shislo >>(i * 8)) & 0xFF);
-     }
+    // Обратное преобразование строки в двумерный массив
+    k = 0;
+    for (i = 0; i < K; i++) {
+        for (j = 0; j < N; j++) {
+            x[i][j] = stroka[k++];
+        }
+    }
 
-     // Вывод результата
-     printf("Perestavlennye baita chisla: ");
-     for (int i = 0; i < sizeof(swapped); i++) {
-         printf("%02X ", (unsigned char)(swapped >>(i * 8)));
-     }
-     printf("\n");
+    // Вывод массива
+    printf("Vivod:\n");
+    for (i = 0; i < K; i++) {
+        for (j = 0; j < N; j++) {
+            printf("%d ", x[i][j]);
+        }
+        printf("\n");
+    }
+    system("PAUSE");
+    return 0;
+}
+ int labs7(void) {
+    unsigned long long shislo;
 
-     return 0;
- }
+    // Ввод числа
+    printf("Vvedite celoe chislo: ");
+    scanf_s("%llu", &shislo);
 
+    // Вывод исходных байтов
+    printf("Ishodn bait chisla: ");
+    for (int i = 0; i < sizeof(shislo); i++) {
+        printf("%02X ", (unsigned char)(shislo >> (i * 8)));
+    }
+    printf("\n");
+
+    // Функция для обмена байтов местами
+    unsigned long long swapped = 0;
+    for (int i = 0; i < sizeof(shislo); i++) {
+        swapped = (swapped << 8) | ((shislo >> (i * 8)) & 0xFF);
+    }
+
+    // Вывод результата
+    printf("Perestavlennye baita chisla: ");
+    for (int i = 0; i < sizeof(swapped); i++) {
+        printf("%02X ", (unsigned char)(swapped >> (i * 8)));
+    }
+    printf("\n");
+    system("PAUSE");
+    return 0;
+}
