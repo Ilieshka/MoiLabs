@@ -28,20 +28,20 @@ int labs1(){
     double H, r, R, V;
     double result;
     // Ввод данных
-    printf("Введите радиус меньшего основания r: ");
+    printf("Vvedite radius menshego osn r: ");
     result = scanf_s("%lf", &r);
 
-    printf("Введите высоту усечённого конуса H: ");
+    printf(" Vvedite visotu ysech conusa H: ");
     result = scanf_s("%lf", &H);
 
-    printf("Введите радиус боьшего основания R: ");
+    printf("Vvedite radius bolshego osn R: ");
     result = scanf_s("%lf", &R);
 
     // Расчет объема усеченного конуса
     V = X * pi * H * ((r * r) + r + R + (R * R));
 
     // Вывод результата
-    printf("Объем оставшейся фигуры: %lf\n", V);
+    printf("Obiom ostavsheysya figuri: %lf\n", V);
     #undef X
     return 0;
     
@@ -53,10 +53,10 @@ int labs2(){
     int sign = -1; // знак очередного элемента ряда
     int result;
     // ввод параметров ряда
-    printf("Введите положительное целое число n: ");
+    printf("Vvedite polozitelnoe tseloe chislo n: ");
     result = scanf_s("%d", &n);
 
-    printf("Введите значение x: ");
+    printf("Vvedite znachenie x: ");
     result = scanf_s("%lf", &x);
 
     // вычисление суммы ряда
@@ -66,7 +66,7 @@ int labs2(){
     }
 
     // вывод результата
-    printf("Сумма ряда для x = %.2f с %d элементами равна %.6lf\n", x, n, summ);
+    printf("Summa dlya ryada x = %.2f c %d elementami ravna %.6lf\n", x, n, summ);
 
     return 0;
 }
@@ -77,7 +77,7 @@ int labs3()
     char predSymvol = 0;
     int kolichestvoSivolovPovtor = 0;
     int kolichSlov = 0;
-    printf("Введите текст: \n");
+    printf("Vvedite text: \n");
 // цикл чтения символов из потока, связанного с клавиатурой
     while( (c = getchar()) != EOF )
     {
@@ -96,7 +96,7 @@ int labs3()
         }
 
      }
-     printf("Колличество слов: %d\n", kolichSlov );
+     printf("Kolichestvo slov: %d\n", kolichSlov );
      return 0;
 }
 int labs4() {
