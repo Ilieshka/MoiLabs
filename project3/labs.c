@@ -203,6 +203,7 @@ int Doplabs4() {
     i = 0;
     pos = 0;
     // цикл чтения символов из строки
+    printf("Vvediye text: \n");
     while ((c = getchar()) != EOF)
     {
         buffer[i] = c;
